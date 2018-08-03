@@ -1,0 +1,5 @@
+.babelrc
+node_modules/
+.DS_Store
+dist/bundle.js
+rethinkdb_data/
