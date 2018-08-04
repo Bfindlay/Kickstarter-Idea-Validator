@@ -19,8 +19,9 @@ Router.use(function(req, res, next) {
 
 //API END POINTS
 
-Router.post('/', (req,res) => { 
-   res.send('Guten Tag!').status(200);
+Router.post('/idea', (req,res) => { 
+    console.log(req.body);
+    res.send('Guten Tag!').status(200);
 });
 
 

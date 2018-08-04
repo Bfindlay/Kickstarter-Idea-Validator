@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {} from "../";
+import { submitIdea } from '../actions';
 import Button from "@material-ui/core/Button";
 
 const styles = {
@@ -15,9 +16,25 @@ const styles = {
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+        idea: '',
+    
+    }
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+
+  }
+
+  handleIdeaChange({target}){
+    this.setState({idea : target.value})
+  }
+
+  submitIdea(){
+    const { idea } = this.state;
+    this.props.submitIdea({idea: idea})
+    console.log('idea submitted');
+  }
 
   render() {
     return (
@@ -25,15 +42,16 @@ class App extends Component {
         <div className="top-panel">
           <div className="text-input">
             <input
-              type="text"
-              id="input1"
-              placeholder="Type Your Kickstarter Idea Here"
+                onChange= {this.handleIdeaChange.bind(this)}
+                type="text"
+                id="input1"
+                placeholder="Type Your Kickstarter Idea Here"
             />
             <label htmlFor="input1">Idea</label>
           </div>
         </div>
         <div className="bottom-panel">
-            <Button variant="contained" color="primary" style={styles.button}>
+            <Button onClick={this.submitIdea.bind(this)} variant="contained" color="primary" style={styles.button}>
                 Submit
             </Button>
         </div>
@@ -45,5 +63,5 @@ class App extends Component {
 const mapStateToProp = ({ App }) => ({ App });
 export default connect(
   mapStateToProp,
-  {}
+  {submitIdea}
 )(App);
