@@ -2,7 +2,6 @@
 const Express = require('express');
 const Router = Express.Router();
 const bodyParser = require('body-parser');
-const jwt  = require('jsonwebtoken'); 
 const axios = require('axios');
 
 
