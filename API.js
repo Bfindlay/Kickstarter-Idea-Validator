@@ -24,8 +24,10 @@ Router.post('/idea', (req,res) => {
     global.nb.predictClass(idea)
         .then( result => {
             console.log('PREDICTED RESULT', result);
-        }).catch(err, console.log('err', err))
-    res.send('Guten Tag!').status(200);
+            res.send(result).status(200);
+        }).catch(err => {
+            res.send(err).status(500);
+        });
 });
 
 
