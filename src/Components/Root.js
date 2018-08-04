@@ -14,7 +14,7 @@ class Root extends Component {
     render() {
 
         const { results } = this.state;
-        if(!results){
+        if(results){
             return (
                 <div className='parent'>
                     <div className='right-panel'>

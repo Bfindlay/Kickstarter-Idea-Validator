@@ -20,7 +20,8 @@ Router.use(function(req, res, next) {
 //API END POINTS
 
 Router.post('/idea', (req,res) => { 
-    console.log(req.body);
+    const { idea } = req.body.idea;
+    global.nb.predictClass(idea);
     res.send('Guten Tag!').status(200);
 });
 

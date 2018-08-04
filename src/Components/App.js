@@ -22,10 +22,6 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
-
-  }
-
   handleIdeaChange({target}){
     this.setState({idea : target.value})
   }

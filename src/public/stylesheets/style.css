@@ -42,7 +42,7 @@ body {
     align-content: center;
     align-items:center;
     height: 100%;
-    background-color: #23CE6B;
+    background-color: #7371FC;
   }
 
   .top-panel{
@@ -348,3 +348,11 @@ form{
     transition-delay: 0.2s;
   }
   
+
+  /**** CHARTS ****/
+  .chart-container{
+    box-sizing: border-box;
+    padding: 10px;
+    height: 400px;
+    width: 100%;
+  }
