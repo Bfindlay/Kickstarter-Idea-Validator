@@ -49,46 +49,54 @@ var usd_goal_real_success = [];
 var usd_goal_real_failure = [];
 
 //stage1
+// Reads the user input to get the optimal category
 csv.fromStream(stream, {headers : true}).on("data", function(data){
     const { name, main_category} = data;
     nbc.learn( name, main_category );
-
+    
+    //The function will predict the optimal category.
+    // Currently test data
 }).on("end", function(){
     nbc.consolidate();
+    
     console.log("done");
     console.log(nbc.predict("pet feeding dog walking with human"));
     console.log(nbc.predict("cat food fishing"));
     console.log(nbc.predict("andriod computer"));
-    console.log(nbc.predict("draaw books testing studio"));
+    console.log(nbc.predict("draw books testing studio"));
     console.log(nbc.predict("music sound facter"));
     console.log(nbc.predict("pet feeding dog walking with cat"));
     console.log(nbc.predict("pet feeding dog walking with turtle"));
     console.log(nbc.predict("cat dog turtle animal vet"));
+    
 });
+
 
 //stage2
-csv.fromStream(stream2, {headers : true}).on("data", function(data){
-    const { name, main_category, goal, state, country} = data;
-    const {goal, state, pledged, } = data;
-    nbc.learn( name, main_category );
-    //successful state
-    if(state == "successful"){
-        goal_success.push(goal);
-    }
-    //failed state
-    else if(state == "failed"){
-        goal_failure.push(goal);
-    }
+// Implement Naive Bayes
+// 
+// csv.fromStream(stream2, {headers : true}).on("data", function(data){
+//     const { name, main_category, goal, state, country} = data;
+//     const {goal, state, pledged, } = data;
+//     nbc.learn( name, main_category );
+//     //successful state
+//     if(state == "successful"){
+//         goal_success.push(goal);
+//     }
+//     //failed state
+//     else if(state == "failed"){
+//         goal_failure.push(goal);
+//     }
 
-}).on("end", function(){
-    nbc.consolidate();
-    console.log("done");
-    console.log(nbc.predict("pet feeding dog walking with human"));
-    console.log(nbc.predict("cat food fishing"));
-    console.log(nbc.predict("andriod computer"));
-    console.log(nbc.predict("draaw books testing studio"));
-    console.log(nbc.predict("music sound facter"));
-    console.log(nbc.predict("pet feeding dog walking with cat"));
-    console.log(nbc.predict("pet feeding dog walking with turtle"));
-    console.log(nbc.predict("cat dog turtle animal vet"));
-});
+// }).on("end", function(){
+//     nbc.consolidate();
+//     console.log("done");
+//     console.log(nbc.predict("pet feeding dog walking with human"));
+//     console.log(nbc.predict("cat food fishing"));
+//     console.log(nbc.predict("andriod computer"));
+//     console.log(nbc.predict("draaw books testing studio"));
+//     console.log(nbc.predict("music sound facter"));
+//     console.log(nbc.predict("pet feeding dog walking with cat"));
+//     console.log(nbc.predict("pet feeding dog walking with turtle"));
+//     console.log(nbc.predict("cat dog turtle animal vet"));
+// });
