@@ -1,0 +1,6 @@
+speech scam recognition / Speech mood recognition
+camera item detection for shopping list
+AI meme generator 
+Camera Book recognition and library API / Map
+
+blockchain???
