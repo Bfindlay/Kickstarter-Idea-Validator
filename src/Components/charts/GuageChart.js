@@ -6,16 +6,16 @@ const GaugeChart = (props) => {
         const chartValue = props.value;
         const colorData = [{
                 value: 40, // Meaning span is 0 to 40
-                color: '#663399'
+                color: '#FF6663'
             }, {
                 value: 100, // span 40 to 140
                 color: '#e91e63'
             }, {
                 value: 50, // span 140 to 190
-                color: '#ff9800'
+                color: '#E0FF4F'
             }, {
                 value: 20,
-                color: '#4caf50'
+                color: '#03FCBA'
             }
         ];
 

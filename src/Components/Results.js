@@ -20,6 +20,8 @@ class Results extends Component {
             categoryGoalAvg,
             categoryBackersAvg,
             categoryPledgeAvg,
+            similarDurationAvg,
+            categoryDurationAvg,
         } = this.props.App.results;
         return (
             <div className='content-box'>

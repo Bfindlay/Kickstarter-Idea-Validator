@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/dist'));
 
 /*** TRAIN ML ALGORITHM ON SERVER START */
 const AI = require('./ai.js');
-global.nb = new AI('ml-data.csv');
+global.nb = new AI('mlp-duration.csv');
 global.nb.initiate();
 
 const API = require('./API');

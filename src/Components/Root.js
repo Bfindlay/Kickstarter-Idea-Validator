@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { App, Results} from './index.js';
+import { App, Results, Summary} from './index.js';
 import { } from '../actions'
 
 class Root extends Component {
@@ -27,6 +27,7 @@ class Root extends Component {
                 <div className='parent'>
                     <div className='right-panel'>
                         <App/>
+                        <Summary />
                     </div>
                     <div className='left-panel'>
                         <Results/>

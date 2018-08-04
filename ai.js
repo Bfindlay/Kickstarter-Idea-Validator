@@ -48,11 +48,12 @@ class AI {
         
             let mapped = filtered.map((e) => {
                 if(e.main_category === category){
-                    let {main_category, goal, backers, usd_pledged_real, name, state } = e;
+                    let {main_category, goal, backers, usd_pledged_real, name, state, duration } = e;
                     goal = Number(goal);
                     backers = Number(backers);
                     usd_pledged_real = Number(usd_pledged_real);
-                    return {main_category, goal, backers, usd_pledged_real, name, state };
+                    duration = Number(duration);
+                    return {main_category, goal, backers, usd_pledged_real, name, state, duration };
                 }
             });
         
@@ -94,6 +95,10 @@ class AI {
                 return accumulator + currentValue.usd_pledged_real;
             }, 0)) / mapped.length;
 
+            const avgDuration = (mapped.reduce((accumulator, currentValue) => {
+                return accumulator + currentValue.duration;
+            }, 0)) / mapped.length;
+
             console.log(best);
 
             //Similar App Averages
@@ -105,6 +110,10 @@ class AI {
             }, 0)) / best.length;
             const similarPledgeAvg = (best.reduce((accumulator, currentValue) => {
                 return accumulator + currentValue.usd_pledged_real;
+            }, 0)) / best.length;
+
+            const similarDurationAvg = (best.reduce((accumulator, currentValue) => {
+                return accumulator + currentValue.duration;
             }, 0)) / best.length;
 
             const successful = mapped.filter( e => e.state === 'successful').length;
@@ -119,9 +128,11 @@ class AI {
                 similarGoalAvg,
                 similarBackersAvg,
                 similarPledgeAvg,
+                similarDurationAvg,
                 categoryGoalAvg: Math.floor(avgGoal),
                 categoryBackersAvg: Math.floor(avgBackers),
                 categoryPledgeAvg: Math.floor(avgPledge),
+                categoryDurationAvg: Math.floor(avgDuration)
             }
 
             resolve(result);
