@@ -39,6 +39,7 @@
     "bcrypt": "^2.0.1",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.17.2",
+    "fast-csv": "^2.4.1",
     "material-ui": "^1.0.0-beta.46",
     "material-ui-icons": "^1.0.0-beta.36",
     "material-ui-number-input": "^5.0.24",
@@ -52,6 +53,7 @@
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.1.0",
-    "thinky": "^2.3.8"
+    "thinky": "^2.3.8",
+    "wink-naive-bayes-text-classifier": "^1.1.4"
   }
 }
