@@ -1,6 +1,16 @@
-speech scam recognition / Speech mood recognition
+
 camera item detection for shopping list
 AI meme generator 
 Camera Book recognition and library API / Map
 
-blockchain???
+* text recognition / recognition
++ ML layer
++ 
+
+
+1) Idea input Layer
+2) Text recognition
+3) ML Layer 
+4) analytics of your Idea
+5) Predicted funds raised and success or not
+
