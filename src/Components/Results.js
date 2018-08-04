@@ -25,14 +25,11 @@ class Results extends Component {
         } = this.props.App.results;
         return (
             <div className='content-box'>
-                <div className="top-panel">
-                    <GuageChart value={ratio * 100} />
-                </div>
-                <div className='bottom-panel'>
+               
                     <ResultsBarChart similarAvg={similarGoalAvg} categoryAvg={categoryGoalAvg} invert={false} />
                     <ResultsBarChart similarAvg={similarBackersAvg} categoryAvg={categoryBackersAvg} invert={true} />
                     <ResultsBarChart similarAvg={similarPledgeAvg} categoryAvg={categoryPledgeAvg} invert={false} />
-                </div>
+               
             </div>
         )
     }
