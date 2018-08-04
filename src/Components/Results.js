@@ -25,10 +25,21 @@ class Results extends Component {
         } = this.props.App.results;
         return (
             <div className='content-box'>
-               
-                    <ResultsBarChart similarAvg={similarGoalAvg} categoryAvg={categoryGoalAvg} invert={false} />
-                    <ResultsBarChart similarAvg={similarBackersAvg} categoryAvg={categoryBackersAvg} invert={true} />
-                    <ResultsBarChart similarAvg={similarPledgeAvg} categoryAvg={categoryPledgeAvg} invert={false} />
+                    <div className='top-panel'>
+                        <div className='big-num'> Average Goal </div>
+                        <ResultsBarChart similarAvg={similarGoalAvg} categoryAvg={categoryGoalAvg} invert={false} />
+                    </div>
+                    <div className='top-panel'>
+                        <div className='big-num'> Average Backers </div>
+                        <ResultsBarChart similarAvg={similarBackersAvg} categoryAvg={categoryBackersAvg} invert={true} />
+                    </div>
+                    <div className='top-panel'>
+                        <div className='big-num'> Average Pledge </div>
+                        <ResultsBarChart similarAvg={similarPledgeAvg} categoryAvg={categoryPledgeAvg} invert={false} />
+                    </div>
+                    
+                    
+                    
                
             </div>
         )

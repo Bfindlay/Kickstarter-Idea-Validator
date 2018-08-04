@@ -29,10 +29,10 @@ class Summary extends Component {
                 <div className="top-panel">
                     <div className='big-num'> Predicted Category: <span style={{color: '#E0FF4F'}}>{ category }</span></div>
                     <div className='big-num'> <span style={{color: '#E0FF4F'}}>{ Math.floor(successful * ratio) }</span> Similar Succesful Projects </div>
-                    <div className='big-num'> <span style={{color: '#E0FF4F'}}>{ similarDurationAvg }</span> Days Avg Campaign Length </div>
+                    <div className='big-num'> <span style={{color: '#E0FF4F'}}>{ Math.floor(similarDurationAvg) }</span> Days Avg Campaign Length </div>
                 </div>
                 <div className="bottom-panel">
-                    <GuageChart value={ratio * 100} />
+                    <GuageChart value={ratio} />
                     <div className='big-num'>Predicted <span style={{color: '#E0FF4F'}}>{ ratio * 100 }%</span> Chance of success </div>
             </div>
             </div>

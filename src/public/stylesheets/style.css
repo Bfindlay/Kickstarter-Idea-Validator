@@ -58,7 +58,20 @@ body {
     align-content: center;
     align-items:center;
     height: 100%;
-    background-color: #7371FC;
+    background-color: #009DDC;
+  }
+
+  .right-panel{
+    display:flex;
+    margin-left: auto;
+    flex-direction: column;
+    justify-content:center;
+    align-content: center;
+    align-items:center;
+    overflow: auto;
+    height: 100%;
+    background-color: #272D2D;
+    width: 100vw;
   }
 
   .top-panel{
@@ -81,17 +94,7 @@ body {
     margin: 10px;
   }
   
-  .right-panel{
-    display:flex;
-    margin-left: auto;
-    flex-direction: column;
-    justify-content:center;
-    align-content: center;
-    align-items:center;
-    overflow: auto;
-    height: 100%;
-    background-color: #272D2D;
-  }
+  
   .right::-webkit-scrollbar {
     display: none;
 }   

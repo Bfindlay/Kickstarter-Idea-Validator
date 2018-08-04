@@ -4,10 +4,10 @@ import { XAxis, YAxis, CartesianGrid, Tooltip, Legend , BarChart, Bar, Responsiv
 const ResultsBarChart = props => {
 
     const invert = (props.invert) ? true : false;
-    const costColour = (invert) ? '#E7E247' : '#2A2D34';
-    const valueColour = (invert) ? '#FE5D26' : '#13b1cd';
+    const costColour = (invert) ? '#FFFFFC' : '#2A2D34';
+    const valueColour = (invert) ? '#FF84E8' : '#DF2935';
     const axisColour = (invert) ? '#fff' : '#222324';
-
+    
     return(
         <div className='chart-container'>
             <ResponsiveContainer width="100%">

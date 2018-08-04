@@ -3,7 +3,7 @@ import { Sector, Cell, PieChart, Pie } from 'recharts';
 
 const GaugeChart = (props) => {
         const width = 500;
-        const chartValue = props.value;
+        const chartValue = props.value * 180;
         const colorData = [{
                 value: 40, // Meaning span is 0 to 40
                 color: '#FF6663'
