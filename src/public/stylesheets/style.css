@@ -67,6 +67,7 @@ body {
     align-items:center;
     height: 100%;
     background-color: #009DDC;
+    overflow:scroll;
   }
 
   .right-panel{
@@ -76,10 +77,10 @@ body {
     justify-content:center;
     align-content: center;
     align-items:center;
-    overflow: auto;
     height: 100%;
     background-color: #272D2D;
     width: 100vw;
+    overflow:scroll;
   }
 
   .top-panel{
