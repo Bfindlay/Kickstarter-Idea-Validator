@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ErrorBoundry } from './index.js';
-import { App } from './';
+import { App, Results} from './index.js';
+import { } from '../actions'
 
 class Root extends Component {
     constructor() {
         super();
+        this.state = {
+            results : false
+        }
     }
 
-
     render() {
-        console.log('current props', this.props.User);
 
-        return (
-            <div>
-
-                {this.props.children}
-
-            </div>
-        )
+        const { results } = this.state;
+        if(!results){
+            return (
+                <div className='parent'>
+                    <div className='right-panel'>
+                        <App/>
+                    </div>
+                </div>
+            )
+        }else{
+            return (
+                <div className='parent'>
+                    <div className='right-panel'>
+                        <App/>
+                    </div>
+                    <div className='left-panel'>
+                        <Results/>
+                    </div>
+                </div>
+            )
+        }
+       
     }
 }
 
-const mapStateToProp = ({ User, App }) => ({ User, App });
+const mapStateToProp = ({ App }) => ({ App });
 export default connect(mapStateToProp, {})(Root);

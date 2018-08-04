@@ -35,13 +35,11 @@ const store = createStore(reducers, {} , compose(applyMiddleware(ReduxThunk)));
 
 
 render(
-  <MuiThemeProvider theme={theme}>
     <Provider store={store}>
           <Router history={hashHistory}>
               <Route path ='/' component={Root}>
                 <IndexRoute component={App} />
               </Route>
           </Router> 
-      </Provider>
-    </MuiThemeProvider>,
+      </Provider>,
 container);
