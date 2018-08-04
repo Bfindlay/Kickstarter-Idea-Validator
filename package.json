@@ -40,6 +40,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.17.2",
     "fast-csv": "^2.4.1",
+    "hashmap": "^2.3.0",
     "material-ui": "^1.0.0-beta.46",
     "material-ui-icons": "^1.0.0-beta.36",
     "material-ui-number-input": "^5.0.24",

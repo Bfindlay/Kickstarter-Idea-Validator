@@ -5,7 +5,7 @@ var fs = require('fs');
 var stream = fs.createReadStream('Data/ks-projects-201801.csv');
 var stream2 = fs.createReadStream('Data/ks-projects-201801 (With duration).csv');
 var csv = require("fast-csv");
-
+let HashMap = require('hashmap');
 
 nbc.definePrepTasks([
     nlp.string.tokenize0,
@@ -61,7 +61,7 @@ csv.fromStream(stream, {headers : true}).on("data", function(data){
 }).on("end", function(){
     nbc.consolidate();
     
-    const input = "this is a cool ios app for dogs";
+    const input = "i love painting pictures and drawings";
     const category = nbc.predict(input);
     let filtered = dataSet.filter((e) => {
         if(e.main_category === category){
@@ -71,14 +71,41 @@ csv.fromStream(stream, {headers : true}).on("data", function(data){
 
     let mapped = filtered.map((e) => {
         if(e.main_category === category){
-            let {main_category, goal, backers, usd_pledged_real } = e;
+            let {main_category, goal, backers, usd_pledged_real, name } = e;
             goal = Number(goal);
             backers = Number(backers);
             usd_pledged_real = Number(usd_pledged_real);
-            return {main_category, goal, backers, usd_pledged_real };
+            return {main_category, goal, backers, usd_pledged_real, name };
         }
     });
 
+    let names = new HashMap();
+    let inputTokens = input.split(" ");
+    let highestCOunt = 0;
+    mapped.forEach( e => {
+        let tokens = e.name.split(" ");
+        let count = 0;
+        tokens.forEach(e => {
+            inputTokens.forEach( g => {
+                if( g === e){
+                    count++;
+                }
+            })
+        })
+        if(count > 0){
+            if(names.get(count)){
+                let arr = names.get(count);
+                arr.push(e);
+            }else{
+                names.set(count, [e]);
+            }
+        }
+      
+    })
+
+    console.log("HIGHEST COUNT", highestCOunt);
+    let best = names.keys()[names.keys().length-1];
+    console.log(names.get(best));
     const avgGoal = (mapped.reduce((accumulator, currentValue, currentIndex, array) => {
         return accumulator + currentValue.goal;
     }, 0)) / mapped.length;
