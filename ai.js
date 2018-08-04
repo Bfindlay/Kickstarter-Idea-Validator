@@ -50,8 +50,10 @@ var usd_goal_real_failure = [];
 
 //stage1
 // Reads the user input to get the optimal category
+let dataSet = [];
 csv.fromStream(stream, {headers : true}).on("data", function(data){
     const { name, main_category} = data;
+    dataSet.push(data);
     nbc.learn( name, main_category );
     
     //The function will predict the optimal category.
@@ -59,15 +61,39 @@ csv.fromStream(stream, {headers : true}).on("data", function(data){
 }).on("end", function(){
     nbc.consolidate();
     
-    console.log("done");
-    console.log(nbc.predict("pet feeding dog walking with human"));
-    console.log(nbc.predict("cat food fishing"));
-    console.log(nbc.predict("andriod computer"));
-    console.log(nbc.predict("draw books testing studio"));
-    console.log(nbc.predict("music sound facter"));
-    console.log(nbc.predict("pet feeding dog walking with cat"));
-    console.log(nbc.predict("pet feeding dog walking with turtle"));
-    console.log(nbc.predict("cat dog turtle animal vet"));
+    const input = "this is a cool ios app for dogs";
+    const category = nbc.predict(input);
+    let filtered = dataSet.filter((e) => {
+        if(e.main_category === category){
+           return true;
+        }
+    });
+
+    let mapped = filtered.map((e) => {
+        if(e.main_category === category){
+            let {main_category, goal, backers, usd_pledged_real } = e;
+            goal = Number(goal);
+            backers = Number(backers);
+            usd_pledged_real = Number(usd_pledged_real);
+            return {main_category, goal, backers, usd_pledged_real };
+        }
+    });
+
+    const avgGoal = (mapped.reduce((accumulator, currentValue, currentIndex, array) => {
+        return accumulator + currentValue.goal;
+    }, 0)) / mapped.length;
+    const avgBackers = (mapped.reduce((accumulator, currentValue, currentIndex, array) => {
+        return accumulator + currentValue.backers;
+    }, 0)) / mapped.length;
+    const avgPledge = (mapped.reduce((accumulator, currentValue, currentIndex, array) => {
+        return accumulator + currentValue.usd_pledged_real;
+    }, 0)) / mapped.length;
+    console.log('avg goal', Math.floor(avgGoal));
+    console.log('avg backers', Math.floor(avgBackers));
+    console.log('avg pledge', Math.floor(avgPledge));
+    //console.log(keyArray);
+   
+    console.log("predicted category", category, 'dataset size', filtered.length, ' full size is', dataSet.length);
     
 });
 
