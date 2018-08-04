@@ -26,6 +26,14 @@ body {
   text-transform: uppercase;
 
 }
+.lil-num{
+  font-size: 42px;
+  line-height: 40px;
+  padding-top: 0;
+  display: inline-block;
+  padding: 10px;
+  text-transform: uppercase;
+}
 .button-flex{
   width: 100%;
   display: flex;
@@ -95,9 +103,6 @@ body {
   }
   
   
-  .right::-webkit-scrollbar {
-    display: none;
-}   
   
   @media (max-width: 767px) {
     .parent {
