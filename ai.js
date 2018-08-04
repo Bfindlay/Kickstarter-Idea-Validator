@@ -113,7 +113,6 @@ class AI {
             console.log("predicted category", category, 'dataset size', filtered.length, ' full size is', this.dataSet.length);
 
             let result = {
-
                 category,
                 successful,
                 ratio: parseFloat((successful/mapped.length).toFixed(2)),
