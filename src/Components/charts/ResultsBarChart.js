@@ -4,8 +4,8 @@ import { XAxis, YAxis, CartesianGrid, Tooltip, Legend , BarChart, Bar, Responsiv
 const ResultsBarChart = props => {
 
     const invert = (props.invert) ? true : false;
-    const costColour = (invert) ? '#FFFFFC' : '#2A2D34';
-    const valueColour = (invert) ? '#FF84E8' : '#DF2935';
+    const costColour = (invert) ? '#42D9C8' : '#2A2D34';
+    const valueColour = (invert) ? '#FF84E8' : '#F0C808';
     const axisColour = (invert) ? '#fff' : '#222324';
     
     return(
