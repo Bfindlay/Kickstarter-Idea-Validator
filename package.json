@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --progress --profile --colors",
+    "build-prod" : "webpack --config webpack.config.js --progress --profile --colors --optimize-minimize",
     "start-dev": "nodemon --ignore ./dist --watch src  --exec \"npm run build \"",
     "start": "node server.js"
   },
@@ -39,6 +40,7 @@
     "bcrypt": "^2.0.1",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.17.2",
+    "compression-webpack-plugin": "^1.1.11",
     "fast-csv": "^2.4.1",
     "hashmap": "^2.3.0",
     "material-ui": "^1.0.0-beta.46",

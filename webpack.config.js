@@ -1,30 +1,49 @@
-// const path = require('path');
-// const loader = require('babel-loader');
 
+
+// const path = require('path');
 // module.exports = {
-//   devtool: 'eval-source-map',
 //   entry: [
+//     'babel-polyfill',
 //     './src/index.jsx'
 //   ],
+//   resolve: {
+//         extensions: ['*', '.js', '.jsx'],
+//         modules: [__dirname , 'node_modules']
+//   },
+//   mode: 'development',
+//   devtool: 'cheap-module-eval-source-map',
 //   output: {
-//     path: path.join(__dirname, 'dist'),
+//     path: path.join(__dirname, '/dist'),
 //     filename: 'bundle.js',
 //     publicPath: '/build/'
 //   },
+//   devServer: {
+//     contentBase: './dist',
+//     hot: true
+//   },
 //   module: {
-//     loaders: [
+//     rules: [
 //       {
-//         test: /\.jsx?$/,
-//         loaders: ['babel-loader'],
-//         include: path.join(__dirname, 'src')
+//         test: /\.js$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: "babel-loader",
+//           options: { presets: ["es2015", "react", "stage-0"] }
+//         }
 //       },
 //       {
-//         test: /\.scss$/,
-//         loaders: ["style", "css", "sass"]
+//         test: /\.jsx$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: "babel-loader",
+//           options: { presets: ["es2015", "react", "stage-0"] }
+//         }
 //       }
 //     ]
 //   }
 // }
+
+
 
 const path = require('path');
 module.exports = {
@@ -36,8 +55,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx'],
         modules: [__dirname , 'node_modules']
   },
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  mode: 'production',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
@@ -68,3 +86,4 @@ module.exports = {
     ]
   }
 }
+

@@ -34,8 +34,8 @@ class Results extends Component {
             )
         }else{
             return (
-                <div className='content-box'>
-                        <div className='top-panel'>
+                <div style={{paddingTop : '10em'}}className='content-box'>
+                        <div style={{marginTop: '40em'}}className='top-panel'>
                             <div className='big-num'> Average Goal </div>
                             <ResultsBarChart similarAvg={similarGoalAvg} categoryAvg={categoryGoalAvg} invert={false} />
                         </div>
